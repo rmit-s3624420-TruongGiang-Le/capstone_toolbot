@@ -1,0 +1,8 @@
+prefix=/home/dev/robot/devel
+
+Name: robot_tracker
+Description: Description of robot_tracker
+Version: 0.0.0
+Cflags: -I/home/dev/robot/devel/include
+Libs: -L/home/dev/robot/devel/lib 
+Requires: roscpp rospy std_msgs message_runtime
