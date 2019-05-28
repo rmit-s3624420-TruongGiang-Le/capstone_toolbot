@@ -5,8 +5,8 @@ from geometry_msgs.msg import Twist
 from robot_tracker.msg import VestData
 
 cmd_vel = '/safebase/cmd_vel'
-cmd_vel = 'turtle1/cmd_vel'
-# cmd_vel = 'cmd_vel'
+# cmd_vel = 'turtle1/cmd_vel'
+# cmd_vel = 'mir_100/cmd_vel'
 win_size = 10
 
 
@@ -17,8 +17,6 @@ def moving_average(x, n=win_size):
 
 
 def log(object_area, frame_area, coverage, object_x_center, frame_x_center, linear_velocity):
-    # rospy.loginfo(rospy.get_name() + ":\n\t face_height = %f, linear_velocity = %f"
-    #               % (face_height, linear_velocity))
     rospy.loginfo(rospy.get_name() + ":\n\t object_area = %s, frame_area = %s\n\t coverage = %s%%\n\t"
                                      " object_x_center = %s,\n\t\t frame_x_center -10%% = %s, frame_x_center +10%% = %s"
                                      "\n\t linear_velocity = %f"
@@ -34,51 +32,26 @@ def callback(data):
     object_x_center = data.x_center
     coverage = object_area / frame_area * 100
 
+    liner_vel_max = 0.5
     new_vel = 0.0
-    # if (object_x_center > frame_x_center * 0.9) and (object_x_center < frame_x_center * 1.1):
-    #     if coverage >= 30:
-    #         msg_twist_out.linear.x = 0.0
-    #         current_vel = msg_twist_out.linear.x
-    #     elif (coverage >= 20) and (coverage < 30):
-    #         msg_twist_out.linear.x = 0.1
-    #         current_vel = msg_twist_out.linear.x
-    #     elif (coverage >= 10) and (coverage < 20):
-    #         msg_twist_out.linear.x = 0.15
-    #         current_vel = msg_twist_out.linear.x
-    #     elif (coverage >= 5) and (coverage < 10):
-    #         msg_twist_out.linear.x = 0.2
-    #         current_vel = msg_twist_out.linear.x
-    #     elif (coverage >= 2.5) and (coverage < 5):
-    #         msg_twist_out.linear.x = 0.25
-    #         current_vel = msg_twist_out.linear.x
-    #     elif (coverage >= 1.25) and (coverage < 2.5):
-    #         msg_twist_out.linear.x = 0.3
-    #         current_vel = msg_twist_out.linear.x
-    #     elif (coverage >= 0.635) and (coverage < 1.25):
-    #         msg_twist_out.linear.x = 0.35
-    #         current_vel = msg_twist_out.linear.x
-    #     else:
-    #         msg_twist_out.linear.x = 0.0
     if (object_x_center > frame_x_center * 0.9) and (object_x_center < frame_x_center * 1.1):
         if coverage >= 30:
-            new_vel = 0.0
+            new_vel = 0.0 * liner_vel_max
         elif (coverage >= 20) and (coverage < 30):
-            new_vel = 0.1
+            new_vel = 0.1 * liner_vel_max
         elif (coverage >= 10) and (coverage < 20):
-            new_vel = 0.15
+            new_vel = 0.3 * liner_vel_max
         elif (coverage >= 5) and (coverage < 10):
-            new_vel = 0.2
+            new_vel = 0.5 * liner_vel_max
         elif (coverage >= 2.5) and (coverage < 5):
-            new_vel = 0.25
+            new_vel = 0.7 * liner_vel_max
         elif (coverage >= 1.25) and (coverage < 2.5):
-            new_vel = 0.3
+            new_vel = 0.9 * liner_vel_max
         elif (coverage >= 0.635) and (coverage < 1.25):
-            new_vel = 0.35
+            new_vel = 1.0 * liner_vel_max
         else:
-            new_vel = 0.0
-            # log(object_area, frame_area, coverage, object_x_center, frame_x_center, msg.linear.x)
+            new_vel = 0.0 * liner_vel_max
 
-        # pub_twist.publish(msg_twist_out)
     window = np.delete(window, 0)
     window = np.append(window, new_vel)
     print(window)
@@ -99,7 +72,6 @@ def listener():
     msg_twist_out = Twist()
 
     global window
-    # window = np.array(np.zeros(win_size,))
     window = np.zeros(win_size, )
 
     # In ROS, nodes are uniquely named. If two nodes with the same

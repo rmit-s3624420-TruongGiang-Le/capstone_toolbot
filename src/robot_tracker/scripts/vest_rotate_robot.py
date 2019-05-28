@@ -5,8 +5,8 @@ from geometry_msgs.msg import Twist
 from robot_tracker.msg import VestData
 
 cmd_vel = '/safebase/cmd_vel'
-cmd_vel = 'turtle1/cmd_vel'
-# cmd_vel = 'cmd_vel'
+# cmd_vel = 'turtle1/cmd_vel'
+# cmd_vel = 'mir_100/cmd_vel'
 
 
 def deg2rad(deg):
