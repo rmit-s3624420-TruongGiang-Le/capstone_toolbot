@@ -9,7 +9,6 @@
     </node>
     <node name="detect_vest" pkg="robot_tracker" type="detect_vest.py"
           args="--debug true"/>
-    <node name="vest_rotate_robot" pkg="robot_tracker" type="vest_rotate_robot.py" />
-    <node name="vest_move_robot" pkg="robot_tracker" type="vest_move_robot.py" output="screen"/>
-    <node name="turtlesim" pkg="turtlesim" type="turtlesim_node"/>
+<!--    <node name="vest_move_robot" pkg="robot_tracker" type="vest_move_robot.py" output="screen"/>-->
+<!--    <node name="turtlesim" pkg="turtlesim" type="turtlesim_node"/>-->
 </launch>

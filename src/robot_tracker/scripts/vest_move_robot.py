@@ -16,12 +16,17 @@ def moving_average(x, n=win_size):
     return ret[n - 1:] / n
 
 
-def log(object_area, frame_area, coverage, object_x_center, frame_x_center, linear_velocity):
+def log(object_area, frame_area, coverage, object_x_center, frame_x_center, linear_velocity, rotation_angle):
     rospy.loginfo(rospy.get_name() + ":\n\t object_area = %s, frame_area = %s\n\t coverage = %s%%\n\t"
                                      " object_x_center = %s,\n\t\t frame_x_center -10%% = %s, frame_x_center +10%% = %s"
-                                     "\n\t linear_velocity = %f"
+                                     "\n\t linear_velocity = %f, rotation_angle =  %f"
                   % (object_area, frame_area, coverage, object_x_center, frame_x_center * 0.9, frame_x_center * 1.1,
-                     linear_velocity))
+                     linear_velocity, rotation_angle))
+
+
+def deg2rad(deg):
+    deg2rad_ratio = 0.0174533
+    return deg * deg2rad_ratio
 
 
 def callback(data):
@@ -31,6 +36,14 @@ def callback(data):
     object_area = data.area
     object_x_center = data.x_center
     coverage = object_area / frame_area * 100
+
+    rotation_angle = data.rotation_angle
+    if rotation_angle > 30:
+        msg_twist_out.angular.z = deg2rad(30)
+    elif rotation_angle < -30:
+        msg_twist_out.angular.z = deg2rad(-30)
+    else:
+        msg_twist_out.angular.z = deg2rad(rotation_angle)
 
     liner_vel_max = 0.5
     new_vel = 0.0
@@ -57,7 +70,7 @@ def callback(data):
     print(window)
     current_vel = moving_average(window)
     msg_twist_out.linear.x = current_vel
-    log(object_area, frame_area, coverage, object_x_center, frame_x_center, current_vel)
+    log(object_area, frame_area, coverage, object_x_center, frame_x_center, current_vel, rotation_angle)
 
 
 def timer_callback(data):

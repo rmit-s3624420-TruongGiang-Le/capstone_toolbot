@@ -51,7 +51,7 @@ def image_callback(ros_data):
     msg_vest_data.x_center = x
     msg_vest_data.y_center = y
     msg_vest_data.rotation_angle = rotation_angle
-    pub.publish(msg_vest_data)
+    pub_vest_data.publish(msg_vest_data)
     rospy.loginfo(rospy.get_name() + '\n\t:Center point of detected object: x=%d y=%d' % center)
 
     if debug:
@@ -83,11 +83,11 @@ def displayvideo(image_np, mask, cnts, center):
     cv2.imshow(win_name, img_con)
     cv2.waitKey(25)
 
-    # msg_vid = CompressedImage()
-    # msg_vid.header.stamp = rospy.Time.now()
-    # msg_vid.format = "jpeg"
-    # msg_vid.data = np.array(cv2.imencode('.jpg', image_np)[1]).tostring()
-    # pub.publish(msg_vid)
+    msg_vid = CompressedImage()
+    msg_vid.header.stamp = rospy.Time.now()
+    msg_vid.format = "jpeg"
+    msg_vid.data = np.array(cv2.imencode('.jpg', image_np)[1]).tostring()
+    pub_debug_vid.publish(msg_vid)
 
 
 if __name__ == '__main__':
@@ -99,9 +99,9 @@ if __name__ == '__main__':
         print ('debug: %s' % args.debug)
         if args.debug.upper() == "True".upper():
             debug = True
-            # pub_debug_vid = rospy.Publisher("/debug_detect_vest/image_raw/compressed", CompressedImage)
+            pub_debug_vid = rospy.Publisher("/debug_detect_vest/image_raw/compressed", CompressedImage, queue_size=1)
         rospy.init_node('detect_vest', anonymous=True)
-        pub = rospy.Publisher('vest_data', VestData, queue_size=1)
+        pub_vest_data = rospy.Publisher('vest_data', VestData, queue_size=1)
         sub = rospy.Subscriber("/usb_cam/image_raw/compressed", CompressedImage, image_callback, queue_size=1)
         print('OpenCV ver: %s' % cv2.__version__)
         rospy.spin()
