@@ -10,4 +10,5 @@
     <node name="detect_vest" pkg="robot_tracker" type="detect_vest.py"
           args="--debug false"/>
     <node name="vest_move_robot" pkg="robot_tracker" type="vest_move_robot.py" output="screen"/>
+    <node name="relay_twist_mir_sim" pkg="robot_tracker" type="relay_twist.py" />
 </launch>
