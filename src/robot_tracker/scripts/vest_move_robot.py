@@ -30,20 +30,20 @@ def deg2rad(deg):
 
 
 def callback(data):
-    global window
+    global current_vel_window
+    global rotation_angle_window
     frame_area = data.cam_height * data.cam_width
     frame_x_center = data.cam_width / 2
     object_area = data.area
     object_x_center = data.x_center
     coverage = object_area / frame_area * 100
 
-    rotation_angle = data.rotation_angle
-    if rotation_angle > 30:
-        msg_twist_out.angular.z = deg2rad(30)
-    elif rotation_angle < -30:
-        msg_twist_out.angular.z = deg2rad(-30)
+    if data.rotation_angle > 30:
+        new_rotation_angle = deg2rad(30)
+    elif data.rotation_angle < -30:
+        new_rotation_angle = deg2rad(-30)
     else:
-        msg_twist_out.angular.z = deg2rad(rotation_angle)
+        new_rotation_angle = deg2rad(data.rotation_angle)
 
     liner_vel_max = 0.5
     new_vel = 0.0
@@ -65,11 +65,18 @@ def callback(data):
         else:
             new_vel = 0.0 * liner_vel_max
 
-    window = np.delete(window, 0)
-    window = np.append(window, new_vel)
-    print(window)
-    current_vel = moving_average(window)
+    current_vel_window = np.delete(current_vel_window, 0)
+    current_vel_window = np.append(current_vel_window, new_vel)
+    print("vel window: %s" % current_vel_window)
+    current_vel = moving_average(current_vel_window)
+
+    rotation_angle_window = np.delete(rotation_angle_window, 0)
+    rotation_angle_window = np.append(rotation_angle_window, new_rotation_angle)
+    print(" RA window: %s" % rotation_angle_window)
+    rotation_angle = moving_average(rotation_angle_window)
+
     msg_twist_out.linear.x = current_vel
+    msg_twist_out.angular.z = rotation_angle
     log(object_area, frame_area, coverage, object_x_center, frame_x_center, current_vel, rotation_angle)
 
 
@@ -84,8 +91,9 @@ def listener():
     global msg_twist_out
     msg_twist_out = Twist()
 
-    global window
-    window = np.zeros(win_size, )
+    global current_vel_window, rotation_angle_window
+    current_vel_window = np.zeros(win_size, )
+    rotation_angle_window = np.zeros(win_size, )
 
     # In ROS, nodes are uniquely named. If two nodes with the same
     # node are launched, the previous one is kicked off. The
