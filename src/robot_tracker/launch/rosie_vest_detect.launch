@@ -1,3 +1,4 @@
+<!-- Initiates all the required nodes to run vest detection using Rosie to display movement -->
 <launch>
     <node name="usb_cam" pkg="usb_cam" type="usb_cam_node">
         <param name="video_device" value="/dev/video1" />
@@ -9,6 +10,7 @@
     </node>
     <node name="detect_vest" pkg="robot_tracker" type="detect_vest.py"
           args="--debug false"/>
-    <node name="vest_move_robot" pkg="robot_tracker" type="vest_move_robot.py" output="screen"/>
+    <node name="vest_move_robot" pkg="robot_tracker" type="vest_move_robot.py" output="screen"
+          args="--cmd_vel /safebase/cmd_vel"/>
     <node name="relay_twist_mir_sim" pkg="robot_tracker" type="relay_twist.py" />
 </launch>

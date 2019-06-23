@@ -1,5 +1,11 @@
 #!/usr/bin/env python
 
+# This script is used to interface Rosie's mobility base with the Gazibo MiR-100 simulation of the VXLab. It allows for
+# the simulated MiR-100 to mimic the movements of Rosie. The script ensures that Twist msgs can only be sent from the
+# mobility base and not received. This is so that none of Rosie's safety features are overridden / compromised.
+#
+# The relay was also required, as the mobility base published the TwistStamped msg type, and Twist msg type is required
+# by the simulator. Therefore a conversion of data types also occurs.
 import rospy
 from geometry_msgs.msg import Twist
 from geometry_msgs.msg import TwistStamped

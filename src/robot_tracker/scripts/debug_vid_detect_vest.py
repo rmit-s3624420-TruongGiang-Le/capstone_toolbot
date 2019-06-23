@@ -1,4 +1,9 @@
-#!/usr/bin/env python
+#!/usr/bin/env
+
+# The script is to be used for debugging purposes. It allows you to remotely view what Rosie see through the attached
+# webcam, with any identified contours overlaid. Note: debug argument needs to be set to true when launching the
+# "detect_vest.py" script.
+
 import cv2
 
 import numpy as np

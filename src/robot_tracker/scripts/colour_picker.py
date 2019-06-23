@@ -8,6 +8,9 @@
 # or
 # python ColorPicker.py --filter HSV --webcam
 
+# This script is to be run separately from rosie. It is just to run in a python environment and is to be used to
+# determine the hsv values desired for the filtering process in the "detect_vest.py" script.
+
 import cv2
 import numpy as np
 import argparse
