@@ -2,13 +2,10 @@
 import argparse
 import cv2
 import numpy as np
-import rospy
-from std_msgs.msg import Float32
-from sensor_msgs.msg import CompressedImage
-from robot_tracker.msg import FaceData
-import sys
 
-# sys.path.append('/opt/ros/kinetic/lib/python2.7/dist-packages')
+import rospy
+from robot_tracker.msg import FaceData
+from sensor_msgs.msg import CompressedImage
 
 
 def image_callback(ros_data):
@@ -20,17 +17,13 @@ def image_callback(ros_data):
     msg_face_data.cam_height = cam_height
     msg_face_data.cam_width = cam_width
 
-    gray = cv2.cvtColor(image_np, cv2.COLOR_BGR2GRAY)
     faces = face_cascade.detectMultiScale(image_np, scaleFactor=1.1, minNeighbors=5, minSize=(30, 30),
                                           flags=cv2.CASCADE_SCALE_IMAGE)
 
-    # print("Faces = " + str(faces))
     face = [[0, 0, 0, 0]]
     for temp_face in faces:
-        # print("Face_temp = " + str(temp_face))
         if np.less(face[0][1], temp_face[1]):
             face = [temp_face]
-            # print("Face = " + str(face))
 
     for (x, y, w, h) in face:
         cv2.rectangle(image_np, (x, y), (x + w, y + h), (255, 0, 0), 2)
@@ -44,8 +37,6 @@ def image_callback(ros_data):
         msg_face_data.rotation_angle = rotation_angle
         pub_face_data.publish(msg_face_data)
 
-        # rospy.loginfo("/detect_face:\n\t rotation_angle = %f\n\t X: %d, width: %d\n\t x-center: %d height: %d"
-        #               % (rotation_angle, x, w, msg_face_data.x_center, h))
         cv2.imshow('Video', image_np)
         cv2.waitKey(2)
 

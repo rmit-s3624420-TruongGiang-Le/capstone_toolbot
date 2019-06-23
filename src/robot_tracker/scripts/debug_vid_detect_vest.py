@@ -18,9 +18,14 @@ def callback(data):
     showvideo("debug_detect_vest", image_np)
 
 
+def shutdown_hook():
+    cv2.destroyAllWindows()
+
+
 def listener():
     rospy.init_node('debug_vid_detect_vest', anonymous=True)
     rospy.Subscriber("/debug_detect_vest/image_raw/compressed", CompressedImage, callback, queue_size=1)
+    rospy.on_shutdown(shutdown_hook)
 
     rospy.spin()
 

@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+# Original script was sourced then modified from the script located at the following github url:
 # https://github.com/socratesk/ComputerVision/blob/master/ColorPicker.py
 #
 # USAGE: You need to specify a filter and "only one" image source
@@ -34,9 +35,6 @@ def get_arguments():
                     help='Path to the image')
     ap.add_argument('-w', '--webcam', required=False,
                     help='Use webcam', action='store_true')
-    ap.add_argument('-p', '--preview', required=False,
-                    help='Show a preview of the image after applying the mask',
-                    action='store_true')
     args = vars(ap.parse_args())
 
     if not xor(bool(args['image']), bool(args['webcam'])):
@@ -93,23 +91,15 @@ def main():
         mask = cv2.dilate(mask, None, iterations=2)
         mask = cv2.filter2D(mask, -1, kernel)
 
-        if args['preview']:
-            preview = cv2.bitwise_and(image, image, mask=mask)
-            cv2.imshow("Preview", preview)
-        else:
-            preview = cv2.bitwise_and(image, image, mask=mask)
-            img_con = cv2.hconcat((image, cv2.cvtColor(mask, cv2.COLOR_GRAY2BGR), preview))
-            cv2.namedWindow('out', cv2.WINDOW_NORMAL)
-            cv2.imshow('out', img_con)
+        preview = cv2.bitwise_and(image, image, mask=mask)
+        img_con = cv2.hconcat((image, cv2.cvtColor(mask, cv2.COLOR_GRAY2BGR), preview))
+        cv2.namedWindow('out', cv2.WINDOW_NORMAL)
+        cv2.imshow('out', img_con)
 
         k = cv2.waitKey(5) & 0xFF
         if k == 27 or k == ord('q'):
             break
 
 
-# USAGE: You need to specify a filter and "only one" image source
-# python ColorPicker.py --filter RGB --image /path/image.png
-# or
-# python ColorPicker.py --filter HSV --webcam
 if __name__ == '__main__':
     main()

@@ -1,11 +1,12 @@
 #!/usr/bin/env python
+import argparse
 import cv2
 import numpy as np
-import rospy
-from sensor_msgs.msg import CompressedImage
-from robot_tracker.msg import VestData
 from collections import deque
-import argparse
+
+import rospy
+from robot_tracker.msg import VestData
+from sensor_msgs.msg import CompressedImage
 
 debug = False
 
@@ -31,7 +32,6 @@ def image_callback(ros_data):
     mask = cv2.filter2D(mask, -1, kernel)
     (_, cnts, _) = cv2.findContours(mask.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
-    center = None
     if len(cnts) > 0:
         cnts = max(cnts, key=cv2.contourArea)
         msg_vest_data.area = cv2.contourArea(cnts)
@@ -96,10 +96,12 @@ if __name__ == '__main__':
         parser = argparse.ArgumentParser()
         parser.add_argument("-d", "--debug", help="debug will display video feed", required=False)
         args = parser.parse_args(rospy.myargv()[1:])
+
         print ('debug: %s' % args.debug)
         if args.debug.upper() == "True".upper():
             debug = True
             pub_debug_vid = rospy.Publisher("/debug_detect_vest/image_raw/compressed", CompressedImage, queue_size=1)
+
         rospy.init_node('detect_vest', anonymous=True)
         pub_vest_data = rospy.Publisher('vest_data', VestData, queue_size=1)
         sub = rospy.Subscriber("/usb_cam/image_raw/compressed", CompressedImage, image_callback, queue_size=1)

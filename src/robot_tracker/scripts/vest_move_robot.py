@@ -30,8 +30,7 @@ def deg2rad(deg):
 
 
 def callback(data):
-    global current_vel_window
-    global rotation_angle_window
+    global current_vel_window, rotation_angle_window
     frame_area = data.cam_height * data.cam_width
     frame_x_center = data.cam_width / 2
     object_area = data.area
@@ -109,4 +108,7 @@ def listener():
 
 
 if __name__ == '__main__':
-    listener()
+    try:
+        listener()
+    except rospy.ROSInterruptException:
+        pass
