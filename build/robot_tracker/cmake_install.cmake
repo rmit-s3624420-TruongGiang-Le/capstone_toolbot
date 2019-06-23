@@ -33,7 +33,10 @@ if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/robot_tracker/msg" TYPE FILE FILES "/home/dev/robot/src/robot_tracker/msg/VestData.msg")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/robot_tracker/msg" TYPE FILE FILES
+    "/home/dev/robot/src/robot_tracker/msg/VestData.msg"
+    "/home/dev/robot/src/robot_tracker/msg/FaceData.msg"
+    )
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")

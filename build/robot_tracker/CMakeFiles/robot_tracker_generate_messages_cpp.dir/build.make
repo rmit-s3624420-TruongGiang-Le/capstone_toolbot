@@ -54,6 +54,7 @@ CMAKE_BINARY_DIR = /home/dev/robot/build
 include robot_tracker/CMakeFiles/robot_tracker_generate_messages_cpp.dir/progress.make
 
 robot_tracker/CMakeFiles/robot_tracker_generate_messages_cpp: /home/dev/robot/devel/include/robot_tracker/VestData.h
+robot_tracker/CMakeFiles/robot_tracker_generate_messages_cpp: /home/dev/robot/devel/include/robot_tracker/FaceData.h
 
 
 /home/dev/robot/devel/include/robot_tracker/VestData.h: /opt/ros/kinetic/lib/gencpp/gen_cpp.py
@@ -62,8 +63,15 @@ robot_tracker/CMakeFiles/robot_tracker_generate_messages_cpp: /home/dev/robot/de
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/dev/robot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C++ code from robot_tracker/VestData.msg"
 	cd /home/dev/robot/src/robot_tracker && /home/dev/robot/build/catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/dev/robot/src/robot_tracker/msg/VestData.msg -Irobot_tracker:/home/dev/robot/src/robot_tracker/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p robot_tracker -o /home/dev/robot/devel/include/robot_tracker -e /opt/ros/kinetic/share/gencpp/cmake/..
 
+/home/dev/robot/devel/include/robot_tracker/FaceData.h: /opt/ros/kinetic/lib/gencpp/gen_cpp.py
+/home/dev/robot/devel/include/robot_tracker/FaceData.h: /home/dev/robot/src/robot_tracker/msg/FaceData.msg
+/home/dev/robot/devel/include/robot_tracker/FaceData.h: /opt/ros/kinetic/share/gencpp/msg.h.template
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/dev/robot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating C++ code from robot_tracker/FaceData.msg"
+	cd /home/dev/robot/src/robot_tracker && /home/dev/robot/build/catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/dev/robot/src/robot_tracker/msg/FaceData.msg -Irobot_tracker:/home/dev/robot/src/robot_tracker/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p robot_tracker -o /home/dev/robot/devel/include/robot_tracker -e /opt/ros/kinetic/share/gencpp/cmake/..
+
 robot_tracker_generate_messages_cpp: robot_tracker/CMakeFiles/robot_tracker_generate_messages_cpp
 robot_tracker_generate_messages_cpp: /home/dev/robot/devel/include/robot_tracker/VestData.h
+robot_tracker_generate_messages_cpp: /home/dev/robot/devel/include/robot_tracker/FaceData.h
 robot_tracker_generate_messages_cpp: robot_tracker/CMakeFiles/robot_tracker_generate_messages_cpp.dir/build.make
 
 .PHONY : robot_tracker_generate_messages_cpp

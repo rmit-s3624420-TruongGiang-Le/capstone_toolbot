@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/robot_tracker_generate_messages_py"
   "/home/dev/robot/devel/lib/python2.7/dist-packages/robot_tracker/msg/_VestData.py"
+  "/home/dev/robot/devel/lib/python2.7/dist-packages/robot_tracker/msg/_FaceData.py"
   "/home/dev/robot/devel/lib/python2.7/dist-packages/robot_tracker/msg/__init__.py"
 )
 

@@ -54,6 +54,7 @@ CMAKE_BINARY_DIR = /home/dev/robot/build
 include robot_tracker/CMakeFiles/robot_tracker_generate_messages_eus.dir/progress.make
 
 robot_tracker/CMakeFiles/robot_tracker_generate_messages_eus: /home/dev/robot/devel/share/roseus/ros/robot_tracker/msg/VestData.l
+robot_tracker/CMakeFiles/robot_tracker_generate_messages_eus: /home/dev/robot/devel/share/roseus/ros/robot_tracker/msg/FaceData.l
 robot_tracker/CMakeFiles/robot_tracker_generate_messages_eus: /home/dev/robot/devel/share/roseus/ros/robot_tracker/manifest.l
 
 
@@ -62,12 +63,18 @@ robot_tracker/CMakeFiles/robot_tracker_generate_messages_eus: /home/dev/robot/de
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/dev/robot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating EusLisp code from robot_tracker/VestData.msg"
 	cd /home/dev/robot/build/robot_tracker && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/dev/robot/src/robot_tracker/msg/VestData.msg -Irobot_tracker:/home/dev/robot/src/robot_tracker/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p robot_tracker -o /home/dev/robot/devel/share/roseus/ros/robot_tracker/msg
 
+/home/dev/robot/devel/share/roseus/ros/robot_tracker/msg/FaceData.l: /opt/ros/kinetic/lib/geneus/gen_eus.py
+/home/dev/robot/devel/share/roseus/ros/robot_tracker/msg/FaceData.l: /home/dev/robot/src/robot_tracker/msg/FaceData.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/dev/robot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating EusLisp code from robot_tracker/FaceData.msg"
+	cd /home/dev/robot/build/robot_tracker && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/dev/robot/src/robot_tracker/msg/FaceData.msg -Irobot_tracker:/home/dev/robot/src/robot_tracker/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p robot_tracker -o /home/dev/robot/devel/share/roseus/ros/robot_tracker/msg
+
 /home/dev/robot/devel/share/roseus/ros/robot_tracker/manifest.l: /opt/ros/kinetic/lib/geneus/gen_eus.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/dev/robot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating EusLisp manifest code for robot_tracker"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/dev/robot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating EusLisp manifest code for robot_tracker"
 	cd /home/dev/robot/build/robot_tracker && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py -m -o /home/dev/robot/devel/share/roseus/ros/robot_tracker robot_tracker std_msgs
 
 robot_tracker_generate_messages_eus: robot_tracker/CMakeFiles/robot_tracker_generate_messages_eus
 robot_tracker_generate_messages_eus: /home/dev/robot/devel/share/roseus/ros/robot_tracker/msg/VestData.l
+robot_tracker_generate_messages_eus: /home/dev/robot/devel/share/roseus/ros/robot_tracker/msg/FaceData.l
 robot_tracker_generate_messages_eus: /home/dev/robot/devel/share/roseus/ros/robot_tracker/manifest.l
 robot_tracker_generate_messages_eus: robot_tracker/CMakeFiles/robot_tracker_generate_messages_eus.dir/build.make
 

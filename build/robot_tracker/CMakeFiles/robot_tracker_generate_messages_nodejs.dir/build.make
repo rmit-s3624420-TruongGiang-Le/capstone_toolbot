@@ -54,6 +54,7 @@ CMAKE_BINARY_DIR = /home/dev/robot/build
 include robot_tracker/CMakeFiles/robot_tracker_generate_messages_nodejs.dir/progress.make
 
 robot_tracker/CMakeFiles/robot_tracker_generate_messages_nodejs: /home/dev/robot/devel/share/gennodejs/ros/robot_tracker/msg/VestData.js
+robot_tracker/CMakeFiles/robot_tracker_generate_messages_nodejs: /home/dev/robot/devel/share/gennodejs/ros/robot_tracker/msg/FaceData.js
 
 
 /home/dev/robot/devel/share/gennodejs/ros/robot_tracker/msg/VestData.js: /opt/ros/kinetic/lib/gennodejs/gen_nodejs.py
@@ -61,8 +62,14 @@ robot_tracker/CMakeFiles/robot_tracker_generate_messages_nodejs: /home/dev/robot
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/dev/robot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Javascript code from robot_tracker/VestData.msg"
 	cd /home/dev/robot/build/robot_tracker && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/dev/robot/src/robot_tracker/msg/VestData.msg -Irobot_tracker:/home/dev/robot/src/robot_tracker/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p robot_tracker -o /home/dev/robot/devel/share/gennodejs/ros/robot_tracker/msg
 
+/home/dev/robot/devel/share/gennodejs/ros/robot_tracker/msg/FaceData.js: /opt/ros/kinetic/lib/gennodejs/gen_nodejs.py
+/home/dev/robot/devel/share/gennodejs/ros/robot_tracker/msg/FaceData.js: /home/dev/robot/src/robot_tracker/msg/FaceData.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/dev/robot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Javascript code from robot_tracker/FaceData.msg"
+	cd /home/dev/robot/build/robot_tracker && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/dev/robot/src/robot_tracker/msg/FaceData.msg -Irobot_tracker:/home/dev/robot/src/robot_tracker/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p robot_tracker -o /home/dev/robot/devel/share/gennodejs/ros/robot_tracker/msg
+
 robot_tracker_generate_messages_nodejs: robot_tracker/CMakeFiles/robot_tracker_generate_messages_nodejs
 robot_tracker_generate_messages_nodejs: /home/dev/robot/devel/share/gennodejs/ros/robot_tracker/msg/VestData.js
+robot_tracker_generate_messages_nodejs: /home/dev/robot/devel/share/gennodejs/ros/robot_tracker/msg/FaceData.js
 robot_tracker_generate_messages_nodejs: robot_tracker/CMakeFiles/robot_tracker_generate_messages_nodejs.dir/build.make
 
 .PHONY : robot_tracker_generate_messages_nodejs

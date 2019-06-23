@@ -54,6 +54,7 @@ CMAKE_BINARY_DIR = /home/dev/robot/build
 include robot_tracker/CMakeFiles/robot_tracker_generate_messages_lisp.dir/progress.make
 
 robot_tracker/CMakeFiles/robot_tracker_generate_messages_lisp: /home/dev/robot/devel/share/common-lisp/ros/robot_tracker/msg/VestData.lisp
+robot_tracker/CMakeFiles/robot_tracker_generate_messages_lisp: /home/dev/robot/devel/share/common-lisp/ros/robot_tracker/msg/FaceData.lisp
 
 
 /home/dev/robot/devel/share/common-lisp/ros/robot_tracker/msg/VestData.lisp: /opt/ros/kinetic/lib/genlisp/gen_lisp.py
@@ -61,8 +62,14 @@ robot_tracker/CMakeFiles/robot_tracker_generate_messages_lisp: /home/dev/robot/d
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/dev/robot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Lisp code from robot_tracker/VestData.msg"
 	cd /home/dev/robot/build/robot_tracker && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/dev/robot/src/robot_tracker/msg/VestData.msg -Irobot_tracker:/home/dev/robot/src/robot_tracker/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p robot_tracker -o /home/dev/robot/devel/share/common-lisp/ros/robot_tracker/msg
 
+/home/dev/robot/devel/share/common-lisp/ros/robot_tracker/msg/FaceData.lisp: /opt/ros/kinetic/lib/genlisp/gen_lisp.py
+/home/dev/robot/devel/share/common-lisp/ros/robot_tracker/msg/FaceData.lisp: /home/dev/robot/src/robot_tracker/msg/FaceData.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/dev/robot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Lisp code from robot_tracker/FaceData.msg"
+	cd /home/dev/robot/build/robot_tracker && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/dev/robot/src/robot_tracker/msg/FaceData.msg -Irobot_tracker:/home/dev/robot/src/robot_tracker/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p robot_tracker -o /home/dev/robot/devel/share/common-lisp/ros/robot_tracker/msg
+
 robot_tracker_generate_messages_lisp: robot_tracker/CMakeFiles/robot_tracker_generate_messages_lisp
 robot_tracker_generate_messages_lisp: /home/dev/robot/devel/share/common-lisp/ros/robot_tracker/msg/VestData.lisp
+robot_tracker_generate_messages_lisp: /home/dev/robot/devel/share/common-lisp/ros/robot_tracker/msg/FaceData.lisp
 robot_tracker_generate_messages_lisp: robot_tracker/CMakeFiles/robot_tracker_generate_messages_lisp.dir/build.make
 
 .PHONY : robot_tracker_generate_messages_lisp

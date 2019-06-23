@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.context.in
 
-messages_str = "/home/dev/robot/src/robot_tracker/msg/VestData.msg"
+messages_str = "/home/dev/robot/src/robot_tracker/msg/VestData.msg;/home/dev/robot/src/robot_tracker/msg/FaceData.msg"
 services_str = ""
 pkg_name = "robot_tracker"
 dependencies_str = "std_msgs"

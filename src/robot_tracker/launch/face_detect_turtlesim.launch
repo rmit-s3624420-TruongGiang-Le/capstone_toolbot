@@ -10,7 +10,6 @@
     <node name="detect_face" pkg="robot_tracker" type="detect_face.py" output="screen"
     args="-hc $(find robot_tracker)/scripts/haarcascade_frontalface_default.xml">
     </node>
-    <node name="rotate_robot" pkg="robot_tracker" type="rotate_robot.py" />
-    <node name="move_robot" pkg="robot_tracker" type="move_robot.py" output="screen"/>
+    <node name="face_move_robot" pkg="robot_tracker" type="face_move_robot.py" output="screen"/>
     <node name="turtlesim" pkg="turtlesim" type="turtlesim_node"/>
 </launch>

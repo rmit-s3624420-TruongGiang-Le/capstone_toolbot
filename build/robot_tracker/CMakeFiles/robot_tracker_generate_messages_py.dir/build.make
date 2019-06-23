@@ -54,6 +54,7 @@ CMAKE_BINARY_DIR = /home/dev/robot/build
 include robot_tracker/CMakeFiles/robot_tracker_generate_messages_py.dir/progress.make
 
 robot_tracker/CMakeFiles/robot_tracker_generate_messages_py: /home/dev/robot/devel/lib/python2.7/dist-packages/robot_tracker/msg/_VestData.py
+robot_tracker/CMakeFiles/robot_tracker_generate_messages_py: /home/dev/robot/devel/lib/python2.7/dist-packages/robot_tracker/msg/_FaceData.py
 robot_tracker/CMakeFiles/robot_tracker_generate_messages_py: /home/dev/robot/devel/lib/python2.7/dist-packages/robot_tracker/msg/__init__.py
 
 
@@ -62,13 +63,20 @@ robot_tracker/CMakeFiles/robot_tracker_generate_messages_py: /home/dev/robot/dev
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/dev/robot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Python from MSG robot_tracker/VestData"
 	cd /home/dev/robot/build/robot_tracker && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/dev/robot/src/robot_tracker/msg/VestData.msg -Irobot_tracker:/home/dev/robot/src/robot_tracker/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p robot_tracker -o /home/dev/robot/devel/lib/python2.7/dist-packages/robot_tracker/msg
 
+/home/dev/robot/devel/lib/python2.7/dist-packages/robot_tracker/msg/_FaceData.py: /opt/ros/kinetic/lib/genpy/genmsg_py.py
+/home/dev/robot/devel/lib/python2.7/dist-packages/robot_tracker/msg/_FaceData.py: /home/dev/robot/src/robot_tracker/msg/FaceData.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/dev/robot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Python from MSG robot_tracker/FaceData"
+	cd /home/dev/robot/build/robot_tracker && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/dev/robot/src/robot_tracker/msg/FaceData.msg -Irobot_tracker:/home/dev/robot/src/robot_tracker/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p robot_tracker -o /home/dev/robot/devel/lib/python2.7/dist-packages/robot_tracker/msg
+
 /home/dev/robot/devel/lib/python2.7/dist-packages/robot_tracker/msg/__init__.py: /opt/ros/kinetic/lib/genpy/genmsg_py.py
 /home/dev/robot/devel/lib/python2.7/dist-packages/robot_tracker/msg/__init__.py: /home/dev/robot/devel/lib/python2.7/dist-packages/robot_tracker/msg/_VestData.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/dev/robot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Python msg __init__.py for robot_tracker"
+/home/dev/robot/devel/lib/python2.7/dist-packages/robot_tracker/msg/__init__.py: /home/dev/robot/devel/lib/python2.7/dist-packages/robot_tracker/msg/_FaceData.py
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/dev/robot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Python msg __init__.py for robot_tracker"
 	cd /home/dev/robot/build/robot_tracker && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/dev/robot/devel/lib/python2.7/dist-packages/robot_tracker/msg --initpy
 
 robot_tracker_generate_messages_py: robot_tracker/CMakeFiles/robot_tracker_generate_messages_py
 robot_tracker_generate_messages_py: /home/dev/robot/devel/lib/python2.7/dist-packages/robot_tracker/msg/_VestData.py
+robot_tracker_generate_messages_py: /home/dev/robot/devel/lib/python2.7/dist-packages/robot_tracker/msg/_FaceData.py
 robot_tracker_generate_messages_py: /home/dev/robot/devel/lib/python2.7/dist-packages/robot_tracker/msg/__init__.py
 robot_tracker_generate_messages_py: robot_tracker/CMakeFiles/robot_tracker_generate_messages_py.dir/build.make
 

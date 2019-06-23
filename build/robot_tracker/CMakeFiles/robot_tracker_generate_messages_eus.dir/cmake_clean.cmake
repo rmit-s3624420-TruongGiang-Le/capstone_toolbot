@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/robot_tracker_generate_messages_eus"
   "/home/dev/robot/devel/share/roseus/ros/robot_tracker/msg/VestData.l"
+  "/home/dev/robot/devel/share/roseus/ros/robot_tracker/msg/FaceData.l"
   "/home/dev/robot/devel/share/roseus/ros/robot_tracker/manifest.l"
 )
 
