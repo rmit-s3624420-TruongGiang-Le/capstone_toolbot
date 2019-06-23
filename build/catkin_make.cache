@@ -1,2 +1,0 @@
-robot_tracker
--DCATKIN_DEVEL_PREFIX=/home/dev/robot/devel -DCMAKE_INSTALL_PREFIX=/home/dev/robot/install -G Unix Makefiles
